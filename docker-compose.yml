@@ -1,0 +1,17 @@
+services:
+  checklist:
+    build: .
+    container_name: checklist
+    restart: unless-stopped
+    ports:
+      - "3000:3000"
+    environment:
+      # Décommente pour protéger l'accès par identifiant / mot de passe
+      # AUTH_USER: "moi"
+      # AUTH_PASSWORD: "change-moi"
+      TZ: Europe/Paris
+    volumes:
+      - checklist-data:/data
+
+volumes:
+  checklist-data:
